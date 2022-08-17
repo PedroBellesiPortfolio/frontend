@@ -1,0 +1,24 @@
+<div class="row" id="Header">
+    <div class="col-md-9 p-1">
+        <img src="./assets/logo.jpg" id="logo" class="img-fluid" alt="Portfolio desarrollado en el marco de del programa 
+        Argentina Programa #YoProgramo">
+    </div>
+    <div class="col-md-3  pr-1 pl-1"  >
+        
+         <span *ngFor="let itemre of datosredes">
+         <a href="{{itemre.link_red}}" class="text-decoration-none" [ngSwitch]="true" >    
+       
+        <app-botonfacebook *ngSwitchCase="itemre.red == 'facebook'"></app-botonfacebook> 
+        <app-botoninstagram *ngSwitchCase="itemre.red == 'instagram'"></app-botoninstagram>
+        <app-botonlinkedin *ngSwitchCase="itemre.red == 'linkedin'"></app-botonlinkedin>
+         </a>
+        </span>
+      
+
+        <app-botonacceso (btnClick)="funcionDeAcceso()"></app-botonacceso>
+        
+      
+    </div>
+</div>
+
+

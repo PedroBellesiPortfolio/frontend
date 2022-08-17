@@ -1,0 +1,125 @@
+<div class="row-fluid p-0 " id="rbanner2" >
+    <div class="col-md-12" >
+
+            <app-foto-perfil ></app-foto-perfil>
+                   
+            <app-banner ></app-banner>
+            <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodificafoto()"><app-botoneditar id="editar5"></app-botoneditar></button>
+            <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodificabanner()"><app-botoneditar id="editar4"></app-botoneditar></button>
+</div> 
+</div> 
+<div *ngIf="ventanaFoto">
+<div class="row mt-3 p-3">    
+    <div class="col-md-12 " >
+                       
+            <form  [formGroup]="formfoto" (ngSubmit)="onClickmodificafotoenviar()" >
+              <div class="form-groupfoto">
+               Imagen de foto perfil:     
+              <input placeholder={{foto_entidad}} class="form-control"  formControlName="foto_entidad"  >
+                                  
+          </div>
+          <div class="form-groupfoto">
+            <button class="btn btn-success btn-sm m-1" type="submit" >Enviar</button>
+            <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+          </div>
+            </form>
+          </div>  
+       
+      
+</div> 
+    </div> 
+    <div *ngIf="ventanaBanner">
+        <div class="row mt-3 p-3">    
+            <div class="col-md-12 " >
+                               
+                    <form  [formGroup]="formbanner" (ngSubmit)="onClickmodificabannerenviar()" >
+                      <div class="form-groupbanner">
+                       Imagen del Banner:     
+                      <input placeholder={{foto_fondo}} class="form-control"  formControlName="foto_fondo"  >
+                                          
+                  </div>
+                  <div class="form-groupbanner">
+                    <button class="btn btn-success btn-sm m-1" type="submit" >Enviar</button>
+                    <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+                  </div>
+                    </form>
+                  </div>  
+               
+              
+        </div> 
+            </div> 
+
+    <div class="row mt-0 p-0 border rounded-0 bg-light">    
+        <div class="col-md-11 " >  
+                 
+              <article class="titulo">
+                <div *ngFor="let itempe of datospersona" >
+                    <h2>{{itempe.nombre}} {{itempe.apellido}}</h2>
+                  </div>
+                </article>
+                <p></p>
+        
+        <div *ngFor="let itemba of datosbanner" >
+            <p>{{itemba.experiencia_resumen}}</p>
+            </div>
+            <div *ngFor="let itempe of datospersona" >
+            <p>{{itempe.ciudad}}, {{itempe.provincia}}, {{itempe.pais}}.
+              Links de Contacto:<a href="tel:{{itempe.telefono}}">Teléfono</a> ,
+            <a href="mailto:{{itempe.email}}">E-mail</a></p>
+            </div>
+        </div>
+        <div class="col-md-1">
+      
+            <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodificapersona()"><app-botoneditar idlocal="editar0"></app-botoneditar></button>
+ 
+           
+       </div> 
+   </div>
+   <div *ngIf="ventanaPersona">
+    <div class="row mt-3 p-3">    
+        <div class="col-md-12 " >
+                           
+                <form  [formGroup]="formpersona" (ngSubmit)="onClickmodificapersonaenviar()" >
+                  <div class="form-grouppersona">
+                   Nombre:     
+                  <input placeholder={{nombre}} class="form-control"  formControlName="nombre"  >
+                  <br>   
+                  Apellido:    
+                  <input placeholder={{apellido}} class="form-control"  formControlName="apellido"  >
+                  <br> 
+                  Ciudad:
+                  <input placeholder={{ciudad}} class="form-control"  formControlName="ciudad"  >
+                  <br> 
+                  Provincia:
+                  <input placeholder={{provincia}} class="form-control"  formControlName="provincia"  >
+                  <br> 
+                  Pais:
+                  <input placeholder={{pais}} class="form-control"  formControlName="pais"  >
+                  <br> 
+                  Teléfono:
+                  <input placeholder={{telefono}} class="form-control"  formControlName="telefono"  >
+                  <span *ngIf="this.formpersona.get('telefono')?.errors?.['pattern']">
+                    (El campo debe ser numerico)
+                  </span>
+                  <br> 
+                  Email:
+                  <input placeholder={{email}} class="form-control"  formControlName="email"  >
+                  <span *ngIf="this.formpersona.get('email')?.errors?.['pattern']">
+                    (El campo debe ser un email)
+                  </span>
+                  <br>     
+                  Presentación Personal y Laboral:
+                  <input placeholder={{experiencia_resumen}} class="form-control"  formControlName="experiencia_resumen"  >
+                  <br>          
+              </div>
+              <div class="form-grouppersona">
+                <button class="btn btn-success btn-sm m-1" type="submit" [disabled]="!formpersona.valid">Enviar</button>
+                <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+              </div>
+                </form>
+              </div>  
+           
+          
+    </div> 
+        </div> 
+  

@@ -1,0 +1,53 @@
+
+<div class="row-fluid p-0 border bg-light" id="rbanner" >
+    <div class="col-md-12" >
+
+            <app-foto-perfil ></app-foto-perfil>       
+
+            
+            <app-banner ></app-banner>
+           
+          
+    </div> 
+</div> 
+    <div class="row mt-0 p-0 border-end border-start rounded-0 bg-light">    
+        <div class="col-md-11 " >  
+                 
+              <article class="titulo">
+                <div *ngFor="let itempe of datospersona" >
+                  <h2>{{itempe.nombre}} {{itempe.apellido}}</h2>
+                </div>
+                 
+               
+                </article>
+        </div>
+        <div class="col-md-1">
+      
+          
+ 
+           
+       </div> 
+   </div>
+   <div class="row mt-0 border border-top-0 rounded-bottom bg-light" id="endheader">
+    <div class="col-md-11 p-3">
+
+        <div *ngFor="let itemba of datosbanner" >
+        <p>{{itemba.experiencia_resumen}}</p>
+        </div>
+        <div *ngFor="let itempe of datospersona" >
+        <p>{{itempe.ciudad}}, {{itempe.provincia}}, {{itempe.pais}}.
+          Links de Contacto:<a href="tel:{{itempe.telefono}}">Teléfono</a> ,
+        <a href="mailto:{{itempe.email}}">E-mail</a></p>
+        </div>
+        
+    </div>  
+
+    <div class="col-md-1">
+        
+    </div> 
+      
+</div>
+
+
+ 
+  

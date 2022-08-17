@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+#Header {
+    /* border: black 2px solid; */
+    display: flex;
+    justify-content: space-between;
+    background-color: #00358e;
+    align-items: center;
+    border-radius: 0px;
+    margin-bottom:3px;
+          
+}
+
+#logo {
+    width: 35%;
+  }
+
+
+#banner {
+    /* border: black 2px solid; */
+    
+    border-radius:2% 2% 0% 0% / 6% 6% 0% 0%;
+    border-right: 2px ;
+    border-bottom: 0px;
+    width: 100%;
+    height: auto;;
+       
+}
+
+
+#foto {
+    /* border: black 2px solid; */
+    
+    position: absolute;
+    margin-top:8%;
+    margin-left:5%;
+    width: 20vw;
+    
+       
+}
+
+#endheader {
+    
+    
+    border-radius:30% 30% 0% 0% / 0% 0% 30% 30%;
+    
+       
+}
+
+
+
+ /* 
+#editarbanner {
+    position: absolute;
+    margin-top:-20%;
+    margin-left:80%;
+}
+*/
+
+#rbanner {
+    display: flex;
+    border-radius:20px;
+
+}
+
+.titulo {
+    
+    margin-top: 8%;
+    margin-left:5%;
+    
+}
+
+
+
+.v-right{
+    text-align: right;
+  }
+
+div.row {
+    justify-content: space-between;
+    border-radius: 20px;
+    border: 2px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    left:0; right:0; top: 5px;
+  }  
+
+  #editar1 {
+    position: absolute;
+    margin-top:-20%;
+    margin-left:80%;
+    
+}
+
+
+#editar3 {
+    position: absolute;
+    margin-top:-7%;
+    margin-left: 15%;
+}
+
+#editar0  {
+    align-items: center;
+}

@@ -1,0 +1,77 @@
+<div class="row p-3 border bg-light">
+    <div class="col-md-12 bg-success p-3 rounded-3">
+          <h3>Experiencia</h3>
+           
+         
+    </div>  
+      <div class="col-md-12 p-3">
+        <p style="Color:rgb(228, 134, 134); text-align:center">Ordenado con guardado automático y sistema DRAG & DROP</p>
+        <button style="float:right" class="text-decoration-none border-0 bg-light" (click)="onClickagrega()"><app-botonagregar></app-botonagregar></button>
+        <div id="xex1" cdkDropList class="listaexperiencia" (cdkDropListDropped)="drop($event)">
+         
+        <table class="table table-hover proyecto">
+         
+          <tbody *ngFor="let items of datosexperiencia2 " cdkDrag>
+            
+              <tr>
+                <th scope="row">
+                  <img [src]="items.logo_empresa" onError="this.src='./assets/logo_por_defecto.png'" width="150" height="80" alt=""></th>
+                <td><h5> {{items.titulo_puesto}} en {{items.empresa}} </h5>   
+                  <p style="font-style:italic;Color:rgb(81, 181, 81)"> {{items.descripcion_tareas}}</p>  
+                  <p style="font-style:italic;Color:rgb(81, 181, 81)">{{items.year_inicio}} - {{items.year_cierre}} </p>  
+                  <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodifica(items)"><app-botoneditar idlocal="editar0"></app-botoneditar></button>
+                  <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickDelete(items)"><app-botoneliminar ></app-botoneliminar></button>  
+               
+                </td>
+                
+                </tr>
+            </table >
+             <div id="xyy">
+            <div *ngIf="ventanaNuevoItem">
+              <form  [formGroup]="form" (ngSubmit)="onClicksubmit()" >
+                <div class="form-group">
+               
+              Puesto:
+                <input placeholder={{titulo_puesto}} class="form-control"  formControlName="titulo_puesto"  >
+              
+             
+              <br>
+              Empresa:
+                <input placeholder={{empresa}}   class="form-control"  formControlName="empresa" >
+             
+              <br>
+              Logo de la empresa:
+                <input placeholder={{logo_empresa}}   class="form-control"  formControlName="logo_empresa" >
+              
+              <br>
+                Descripcion de tareas:
+               <textarea rows="2" cols="50" placeholder={{descripcion_tareas}}  class="form-control"  formControlName="descripcion_tareas" ></textarea>
+              
+              <br>
+              Año de inicio del puesto:
+              <input placeholder={{year_inicio}}  class="form-control"  formControlName="year_inicio" >
+              <span *ngIf="this.form.get('year_inicio')?.errors?.['pattern']">
+                (El campo debe ser numerico)
+              </span>
+             
+              <br>
+              Último año del puesto(Actual si continua):
+              <input placeholder={{year_cierre}}  class="form-control"  formControlName="year_cierre" >
+              <span *ngIf="this.form.get('year_cierre')?.errors?.['pattern']">
+                (El campo debe ser numerico)
+              </span>
+             
+              <br>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-sm m-1" type="submit" [disabled]="!form.valid">Enviar</button>
+              <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+            </div>
+              </form>
+            </div>  
+            
+        </div>  
+      </div> 
+     
+       
+    </div>

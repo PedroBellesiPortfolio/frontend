@@ -1,0 +1,30 @@
+<div class="row p-3 border bg-light">
+    <div class="col-md-12 bg-success p-3 rounded-3">
+          <h3>Proyectos</h3>
+           
+         
+    </div>  
+      <div class="col-md-12 p-3">
+        <table class="table table-hover">
+          <tbody *ngFor="let items of datosproyectos2 ">
+              <tr>
+                <th scope="row">
+                  <a href="{{items.link_proyecto}}" class="" >
+                  <img [src]="items.foto_proyecto" onError="this.src='./assets/logo_por_defecto.png'" width="150" height="80" alt=""></a></th>
+                <td><h5> {{items.titulo_proyecto}}</h5>   
+                  <p style="font-style:italic;Color:rgb(81, 181, 81)"> {{items.descripcion_proyecto}}</p>  
+                  <p style="font-style:italic;Color:rgb(81, 181, 81)"> Año de realización: {{items.year_proyecto}}</p>    
+               
+               
+                
+                
+              
+                </td>
+                
+                </tr>
+      </table>
+    </div>      
+    </div>
+    
+    
+    

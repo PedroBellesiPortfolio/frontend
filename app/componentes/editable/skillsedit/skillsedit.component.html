@@ -1,0 +1,70 @@
+<div class="row p-3 border bg-light">
+    <div class="col-md-12 bg-success p-3 rounded-3">
+          <h3>Skills</h3>
+           
+         
+    </div>  
+      <div  class="col-md-12 p-3">
+        
+        <p style="Color:rgb(228, 134, 134); text-align:center">Ordenado con guardado automático y sistema DRAG & DROP</p>
+        <button style="float:right" class="text-decoration-none border-0 bg-light" (click)="onClickagrega()"><app-botonagregar></app-botonagregar></button>
+        <div id="xsk1" cdkDropList class="listaskill" (cdkDropListDropped)="drop($event)">
+         
+        <table class="table table-hover proyecto">
+          
+          <tbody *ngFor="let items of datosskill2" cdkDrag>
+            
+              <tr>
+                <th scope="row">
+                  
+                  <td><h5> {{items.skill}} 
+                      <span style="font-style:italic;Color:rgb(81, 181, 81)"> {{items.porcentaje}}  %</span>   </h5>   
+                  
+                   
+                  <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodifica(items)"><app-botoneditar idlocal="editar0"></app-botoneditar></button>
+                  <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickDelete(items)"><app-botoneliminar ></app-botoneliminar></button>  
+               
+                </td>
+                
+                </tr>
+               </tbody>
+              
+            </table >
+         
+             <div id="xsk">
+            <div *ngIf="ventanaNuevoItem">
+              <form  [formGroup]="form" (ngSubmit)="onClicksubmit()" >
+                <div class="form-group">
+               
+              Skill:
+                <input placeholder={{titulo_skill}} class="form-control"  formControlName="titulo_skill"  >
+              
+             
+              <br>
+              Porcentaje del Skill (0% - 100%)
+                <input placeholder={{porcentaje}}   class="form-control"  formControlName="porcentaje" >
+                <span *ngIf="this.form.get('porcentaje')?.errors?.['pattern']">
+                  (El campo debe ser numerico)
+                </span>
+                <span *ngIf="this.form.get('porcentaje')?.errors?.['min']">
+                  (El campo debe mayor a 0)
+                </span>
+                <span *ngIf="this.form.get('porcentaje')?.errors?.['max']">
+                  (El campo debe ser hasta 100)
+                </span>
+              <br>
+              
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-sm m-1" type="submit" [disabled]="!form.valid">Enviar</button>
+              <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+            </div>
+              </form>
+            </div>  
+            
+        </div>  
+      </div> 
+     
+       
+    </div>
+

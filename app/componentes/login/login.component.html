@@ -1,0 +1,36 @@
+<div id="login">
+<div class="card text-center">
+    <div class="card-header">
+      Acceso
+    </div>
+    <div class="card-body">
+        <div class="row mt-3 p-3">    
+            <div class="col-md-12 " >
+                               
+                    <form  [formGroup]="form" (ngSubmit)="onClickenviar()" >
+                      <div class="form-groupbanner">
+                        Email:
+                        <input class="form-control"  formControlName="email"  >
+                        <span *ngIf="this.form.get('email')?.errors?.['pattern']">
+                          (El campo debe ser un email)
+                        </span>
+                        <br>     
+                        Password:
+                        <input class="form-control"  formControlName="password"  >
+                        <br>    
+               </div>
+                  <div class="form-groupbanner">
+                    <button class="btn btn-success btn-sm m-1" type="submit" >Enviar</button>
+                    <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+                  </div>
+                    </form>
+                  </div>  
+               
+              
+        </div> 
+    </div>
+    <div class="card-footer text-muted">
+      
+    </div>
+  </div>
+</div>

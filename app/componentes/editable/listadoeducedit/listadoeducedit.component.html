@@ -1,0 +1,69 @@
+
+<div class="row p-3 border bg-light">
+  <div class="col-md-12 bg-success p-3 rounded-3">
+        <h3>Educacion</h3>
+         
+       
+  </div>  
+    <div class="col-md-12 p-3">
+      <p style="Color:rgb(228, 134, 134); text-align:center">Ordenado con guardado automático y sistema DRAG & DROP</p>
+      <button style="float:right" class="text-decoration-none border-0 bg-light" (click)="onClickagrega()"><app-botonagregar></app-botonagregar></button>
+      <div id="xed1" cdkDropList class="listaeducacion" (cdkDropListDropped)="drop($event)">
+       
+      <table class="table table-hover proyecto">
+       
+        <tbody *ngFor="let items of datoseducacion2" cdkDrag>
+          <tr>
+            <th scope="row"><img [src]="items.logo_institucion" onError="this.src='./assets/logo_por_defecto.png'" class="m-3" alt="logo" width="100" height="100"></th>
+              <td><h5> {{items.titulo}}</h5>
+              <p> {{items.institucion}}</p>
+              <div  [ngSwitch]="true">
+                <p *ngSwitchCase="items.completado == 1">Egresado el {{items.fecha_finalizacion_titulo | date:'dd-MM-yyyy'}}</p>
+                <p *ngSwitchCase="items.completado == 0">En curso</p>
+               </div>
+                <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickmodifica(items)"><app-botoneditar idlocal="editar0"></app-botoneditar></button>
+                <button class="text-decoration-none border-0 bg-light m-1" (click)="onClickDelete(items)"><app-botoneliminar ></app-botoneliminar></button>  
+             
+              </td>
+              
+              </tr>
+          </table >
+           <div id="xxx">
+          <div *ngIf="ventanaNuevoItem">
+            <form  [formGroup]="form" (ngSubmit)="onClicksubmit()" >
+              <div class="form-group">
+             
+            Institucion Educativa:
+              <input placeholder={{institucion}} class="form-control"  formControlName="institucion"  >
+            
+           
+            <br>
+            Nombre del Título:
+              <input placeholder={{titulo}}   class="form-control"  formControlName="titulo" >
+           
+            <br>
+            Logo de la Institucion Educativa:
+              <input placeholder={{logo_institucion}}   class="form-control"  formControlName="logo_institucion" >
+            
+            <br>
+            
+            <label><input placeholder={{completado}}  type="checkbox" class="form-control1"  formControlName="completado" />Egresado:S/N</label>
+            
+            <br>
+            Fecha del Título:
+            <input placeholder={{fecha_finalizacion_titulo}} type="date" class="form-control1"  formControlName="fecha_finalizacion_titulo" >
+           
+            <br>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-sm m-1" type="submit" >Enviar</button>
+            <button class="btn btn-success btn-sm m-1" (click)="onClickdesestimar()">Cancelar</button>
+          </div>
+            </form>
+          </div>  
+          
+      </div>  
+    </div> 
+   
+     
+  </div>
