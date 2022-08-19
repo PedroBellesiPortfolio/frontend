@@ -1,12 +1,12 @@
 <app-encabezado></app-encabezado>
 <app-encabfoto></app-encabfoto>
 
-<div *ngFor="let item of [].constructor(2400); let x = index">
+<div *ngFor="let item of [].constructor(3600); let x = index">
 <div [ngSwitch]="true" >    
 <app-educacion *ngSwitchCase="x == 2000"></app-educacion>
-<app-experiencia *ngSwitchCase="x == 2100"></app-experiencia>
-<app-skills *ngSwitchCase="x == 2200"></app-skills>
-<app-proyectos *ngSwitchCase="x == 2300"></app-proyectos>
+<app-experiencia *ngSwitchCase="x == 2500"></app-experiencia>
+<app-skills *ngSwitchCase="x == 3000"></app-skills>
+<app-proyectos *ngSwitchCase="x == 3500"></app-proyectos>
 </div>    
 </div>  
   

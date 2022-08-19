@@ -29,7 +29,7 @@ export class ProyectosComponent implements OnInit {
           this.datosproyectos2.sort((a, b) => {
                 return a.orden_proyectos - b.orden_proyectos;
             }); 
-        }, 2000);
+        }, 5000);
         
       });
  

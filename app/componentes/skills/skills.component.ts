@@ -41,7 +41,7 @@ ngOnInit() {
       this.datosskill.sort((a, b) => {
             return a.orden_skill - b.orden_skill;
         }); 
-    }, 2000);
+    }, 4000);
     
   });
   console.log(this.datosskill2)};

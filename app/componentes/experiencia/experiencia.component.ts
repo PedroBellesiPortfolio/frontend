@@ -28,7 +28,7 @@ export class ExperienciaComponent implements OnInit {
         this.datosexperiencia2.sort((a, b) => {
               return a.orden_experiencia - b.orden_experiencia;
           }); 
-      }, 2000);
+      }, 3000);
       
     });
 
