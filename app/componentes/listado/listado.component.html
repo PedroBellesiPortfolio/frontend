@@ -1,5 +1,5 @@
 
-
+<div ng-if="datoseducacion">
 <table class="table table-hover">
     <tbody *ngFor="let items of datoseducacion2">
         <tr>
@@ -10,7 +10,7 @@
               <p *ngSwitchCase="items.completado == 1">Egresado el {{items.fecha_finalizacion_titulo | date:'dd-MM-yyyy'}}</p>
               <p *ngSwitchCase="items.completado == 0">En curso</p>
              </div>
-          
+                    
           
           
         
@@ -19,3 +19,4 @@
           </tr>
           </tbody>
 </table>
+</div> 
