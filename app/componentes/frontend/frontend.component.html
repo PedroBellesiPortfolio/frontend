@@ -1,6 +1,19 @@
-<div ng-if="datoseducacion">
+
 <app-encabezado></app-encabezado>
 <app-encabfoto></app-encabfoto>
+<div *ngIf="vers" >
+    
+
+<div  class="d-flex justify-content-center"  >
+    
+    <div class="spinner-border" role="status" >
+      <span class="visually-hidden" >Loading...</span>
+    </div>
+    
+</div>
+</div>
+
+
 
 <div *ngFor="let item of [].constructor(3600); let x = index">
 <div [ngSwitch]="true" >    
@@ -10,5 +23,5 @@
 <app-proyectos *ngSwitchCase="x == 3500"></app-proyectos>
 </div>    
 </div>  
-</div>
+
   
