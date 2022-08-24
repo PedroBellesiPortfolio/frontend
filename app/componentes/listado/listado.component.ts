@@ -31,7 +31,7 @@ export class ListadoComponent implements OnInit {
         this.datoseducacion2.sort((a, b ) => {
               return a.orden_titulo - b.orden_titulo;
           }); 
-      }, 2000);
+      }, 3000);
       
     });
 

@@ -31,13 +31,11 @@ export class FrontendComponent implements OnInit {
         console.log(this.datoseducacion);
         if (!this.datoseducacion.length) {window.location.reload()};
         if (this.datoseducacion.length) {this.vers=false;};
-      
+       
         
+               
         
-        
-        
-        
-      }, 3000);
+      }, 2000);
       
       
       
