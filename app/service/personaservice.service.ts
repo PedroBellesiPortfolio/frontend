@@ -16,9 +16,13 @@ export class PersonaserviceService {
   public getpersona(): Observable<personainterface[]> {
     return this.http.get<personainterface[]>(`${this.apiUrl}/ver`);
      }
-  public postpersona(idpersona: any) {
-    return this.http.post(`${this.apiUrl}/mas/`,idpersona);
-    }
+ // public postpersona(idpersona: any) {
+ //   return this.http.post(`${this.apiUrl}/mas/`,idpersona);
+ //   }
+
+    public putpersona(idpersona: any) {
+      return this.http.put(`${this.apiUrl}/edita/`,idpersona);
+      }
 
 
 }

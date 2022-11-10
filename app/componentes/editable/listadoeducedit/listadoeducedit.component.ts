@@ -33,6 +33,7 @@ export class ListadoeduceditComponent implements OnInit {
   orden1: number=0;
   x: any;
   completado1: number=0;
+  editaedu: any; 
   
  
   
@@ -48,6 +49,8 @@ export class ListadoeduceditComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+    this.editaedu = 0;
 
     this.form = this.f_builder.group({
       institucion:[''],
@@ -113,6 +116,7 @@ export class ListadoeduceditComponent implements OnInit {
      this.idreferencia=1;
  
      location.href="webeditable#xxx";
+     this.editaedu = 1;
      
    }
 
@@ -167,6 +171,7 @@ export class ListadoeduceditComponent implements OnInit {
                                          "nombre": "Pedro"
                                      }
                                      };
+    if (this.editaedu==0) {
      this.servicioInformacion.posteducacion(this.datoseducacionamodificar[0])
       .subscribe(
         (response) => {
@@ -174,8 +179,18 @@ export class ListadoeduceditComponent implements OnInit {
          //this.servicioInformacion.geteducacion();
          this.onget();
        }
-     )
-     this.limpiaformulario()
+     );}
+     else {
+      this.servicioInformacion.puteducacion(this.datoseducacionamodificar[0])
+       .subscribe(
+         (response) => {
+         console.log(response);
+          
+          this.onget();
+        }
+      );}
+     this.editaedu = 0;
+     this.limpiaformulario();
      this.ventanaNuevoItem=false;
      location.href="webeditable#xed1";
      

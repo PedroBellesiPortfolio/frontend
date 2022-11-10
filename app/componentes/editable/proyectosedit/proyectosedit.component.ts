@@ -32,6 +32,7 @@ export class ProyectoseditComponent implements OnInit {
   fotoproyecto:string="Foto del Proyecto";
   descripcionproyecto:string="Descripcion del Proyecto";
   anoproyecto:any="Año Finalizacion del Proyecto";
+  editapro: any; 
   
   
   
@@ -45,7 +46,7 @@ export class ProyectoseditComponent implements OnInit {
   
   ngOnInit(): void {
     
-
+this.editapro= 0;
     this.form = this.f_builder.group({
       titulo_proyecto:[''],
       link_proyecto: [''],
@@ -114,6 +115,7 @@ export class ProyectoseditComponent implements OnInit {
     this.idproyectoreferencia=1;
 
     location.href="webeditable#xpr";
+    this.editapro= 1;
     
   }
 
@@ -164,6 +166,7 @@ export class ProyectoseditComponent implements OnInit {
                                         "nombre": "Pedro"
                                     }
                                     };
+    if (this.editapro==0) {
     this.serviciosproyectos.postproyetos(this.datosproyectosamodificar[0])
      .subscribe(
        (response) => {
@@ -171,7 +174,16 @@ export class ProyectoseditComponent implements OnInit {
         //this.serviciosproyectos.getproyectos();
         this.onget();
       }
-    );
+    );}
+    else { this.serviciosproyectos.putproyetos(this.datosproyectosamodificar[0])
+    .subscribe(
+      (response) => {
+      console.log(response);
+       
+       this.onget();
+     }
+   );};
+   this.editapro= 0;    
     this.limpiaformulario();
     this.ventanaNuevoItem=false;
     location.href="webeditable#xpr1";
@@ -191,7 +203,7 @@ export class ProyectoseditComponent implements OnInit {
     this.x=0;
     for (let cambiodeindex of this.datosproyectos2) {
     this.datosproyectos2[this.x].orden_proyectos=this.x;
-    this.serviciosproyectos.postproyetos(this.datosproyectos2[this.x])
+    this.serviciosproyectos.putproyetos(this.datosproyectos2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

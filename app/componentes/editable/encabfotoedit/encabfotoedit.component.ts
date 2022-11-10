@@ -173,7 +173,7 @@ this.ventanaPersona=false;
   }
 
   onClicksubmitpersona (datosmodificar:any){
-    this.serviciopersona.postpersona(datosmodificar)
+    this.serviciopersona.putpersona(datosmodificar)
     .subscribe(
       (response) => {
       console.log(response);
@@ -185,7 +185,7 @@ this.ventanaPersona=false;
   }
 
   onClicksubmitbanner (datosmodificar2:any){
-    this.serviciobanner.postbanner(datosmodificar2)
+    this.serviciobanner.putbanner(datosmodificar2)
     .subscribe(
       (response) => {
       console.log(response);

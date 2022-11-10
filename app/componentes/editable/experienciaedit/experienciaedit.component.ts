@@ -26,6 +26,7 @@ export class ExperienciaeditComponent implements OnInit {
   idexperienciareferencia:number=1;
   idexperiencia:number=0;
   form: any;
+  edita: any;
 
   titulo_puesto:string="Ingrese Titulo del Puesto";
   empresa:string="Ingrese Nombre de la empresa";
@@ -40,6 +41,7 @@ export class ExperienciaeditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.edita = 0;
 
 
     this.form = this.f_builder.group({
@@ -113,6 +115,7 @@ export class ExperienciaeditComponent implements OnInit {
     this.idexperienciareferencia=1;
 
     location.href="webeditable#xyy";
+    this.edita = 1;
     
   }
 
@@ -169,6 +172,7 @@ export class ExperienciaeditComponent implements OnInit {
                                         "nombre": "Pedro"
                                     }
                                     };
+   if (this.edita==0) {                                
     this.servicioExperiencia.postexperiencia(this.datosexperienciaamodificar[0])
      .subscribe(
        (response) => {
@@ -176,7 +180,18 @@ export class ExperienciaeditComponent implements OnInit {
         //this.servicioExperiencia.getexperiencia();
         this.onget();
       }
-    );
+    );} 
+    else {
+      this.servicioExperiencia.putexperiencia(this.datosexperienciaamodificar[0])
+      .subscribe(
+        (response) => {
+        console.log(response);
+        
+         this.onget();
+       }
+     );
+    };
+    this.edita = 0;
     this.limpiaformulario();
     this.ventanaNuevoItem=false;
     location.href="webeditable#xex1";
@@ -195,7 +210,7 @@ export class ExperienciaeditComponent implements OnInit {
     this.x=0;
     for (let cambiodeindex of this.datosexperiencia2) {
     this.datosexperiencia2[this.x].orden_experiencia=this.x;
-    this.servicioExperiencia.postexperiencia(this.datosexperiencia2[this.x])
+    this.servicioExperiencia.putexperiencia(this.datosexperiencia2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

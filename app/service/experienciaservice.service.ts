@@ -22,6 +22,10 @@ public postexperiencia(idexperiencia: any) {
   return this.http.post(`${this.apiUrl}/mas/`,idexperiencia);
 }
 
+public putexperiencia(idexperiencia: any) {
+  return this.http.put(`${this.apiUrl}/edita/`,idexperiencia);
+}
+
 public deleteexperiencia(idexperiencia: any) {
   return this.http.delete(`${this.apiUrl}/borra/${idexperiencia}`);
 }

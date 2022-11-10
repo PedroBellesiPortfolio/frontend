@@ -32,6 +32,7 @@ export class SkillseditComponent implements OnInit {
 
   titulo_skill:string="Titulo del Skill";
   porcentaje:any="Porcentaje del Skill";
+  editask: any;
 
   constructor(
     private serviciosskill : SkillserviceService,
@@ -39,6 +40,7 @@ export class SkillseditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.editask=0;
     this.form = this.f_builder.group({
       titulo_skill:[''],
       porcentaje: [0,[
@@ -102,6 +104,7 @@ export class SkillseditComponent implements OnInit {
     this.idskillreferencia=1;
 
     location.href="webeditable#xsk";
+    this.editask=1;
     
   }
 
@@ -143,6 +146,7 @@ export class SkillseditComponent implements OnInit {
                                         "nombre": "Pedro"
                                     }
                                     };
+    if (this.editask==0) {
     this.serviciosskill.postskill(this.datosproyectosamodificar[0])
      .subscribe(
        (response) => {
@@ -150,7 +154,17 @@ export class SkillseditComponent implements OnInit {
         
         this.onget();
       }
-    )
+    );}
+    else {
+      this.serviciosskill.putskill(this.datosproyectosamodificar[0])
+       .subscribe(
+         (response) => {
+         console.log(response);
+          
+          this.onget();
+        }
+      );}
+    this.editask=0;
     this.limpiaformulario();
     this.ventanaNuevoItem=false;
     location.href="webeditable#xsk1";
@@ -170,7 +184,7 @@ export class SkillseditComponent implements OnInit {
     this.x=0;
     for (let cambiodeindex of this.datosskill2) {
     this.datosskill2[this.x].orden_skill=this.x;
-    this.serviciosskill.postskill(this.datosskill2[this.x])
+    this.serviciosskill.putskill(this.datosskill2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

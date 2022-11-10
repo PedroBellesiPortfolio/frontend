@@ -25,6 +25,10 @@ export class InformacionService {
   public posteducacion(ideducacion: any) {
     return this.http.post(`${this.apiUrl}/mas/`,ideducacion);
   }
+
+  public puteducacion(ideducacion: any) {
+    return this.http.put(`${this.apiUrl}/edita/`,ideducacion);
+  }
   
   public deleteeducacion(ideducacion: any) {
     return this.http.delete(`${this.apiUrl}/borra/${ideducacion}`);
