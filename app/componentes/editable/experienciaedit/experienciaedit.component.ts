@@ -182,7 +182,7 @@ export class ExperienciaeditComponent implements OnInit {
       }
     );} 
     else {
-      this.servicioExperiencia.putexperiencia(this.datosexperienciaamodificar[0])
+      this.servicioExperiencia.putexperiencia(this.datosexperienciaamodificar[0].idexperiencia,this.datosexperienciaamodificar[0])
       .subscribe(
         (response) => {
         console.log(response);
@@ -210,7 +210,7 @@ export class ExperienciaeditComponent implements OnInit {
     this.x=0;
     for (let cambiodeindex of this.datosexperiencia2) {
     this.datosexperiencia2[this.x].orden_experiencia=this.x;
-    this.servicioExperiencia.putexperiencia(this.datosexperiencia2[this.x])
+    this.servicioExperiencia.postexperiencia(this.datosexperiencia2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

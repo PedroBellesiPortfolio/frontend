@@ -156,7 +156,7 @@ export class SkillseditComponent implements OnInit {
       }
     );}
     else {
-      this.serviciosskill.putskill(this.datosproyectosamodificar[0])
+      this.serviciosskill.putskill(this.datosproyectosamodificar[0].idskills,this.datosproyectosamodificar[0])
        .subscribe(
          (response) => {
          console.log(response);
@@ -184,7 +184,7 @@ export class SkillseditComponent implements OnInit {
     this.x=0;
     for (let cambiodeindex of this.datosskill2) {
     this.datosskill2[this.x].orden_skill=this.x;
-    this.serviciosskill.putskill(this.datosskill2[this.x])
+    this.serviciosskill.postskill(this.datosskill2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

@@ -17,12 +17,12 @@ export class RedesserviceService {
     return this.http.get<redsocialinterface[]>(`${this.apiUrl}/ver`);
   }
 
-//  public postred(idred: any) {
-//    return this.http.post(`${this.apiUrl}/mas/`,idred);
-//    }
+  public postred(idred: any) {
+    return this.http.post(`${this.apiUrl}/mas/`,idred);
+    }
 
-    public putred(idred: any) {
-      return this.http.put(`${this.apiUrl}/edita/`,idred);
+    public putred(idred: any,body2: any) {
+      return this.http.put(`${this.apiUrl}/edita/${idred}`,body2);
       }  
 
 }

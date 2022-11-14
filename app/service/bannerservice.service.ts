@@ -17,12 +17,12 @@ export class BannerserviceService {
     return this.http.get<bannerinterface[]>(`${this.apiUrl}/ver`);
   }
 
-//  public postbanner(idbanner: any) {
-//    return this.http.post(`${this.apiUrl}/mas/`,idbanner);
-//  }
+  public postbanner(idbanner: any) {
+    return this.http.post(`${this.apiUrl}/mas/`,idbanner);
+  }
 
-  public putbanner(idbanner: any) {
-    return this.http.put(`${this.apiUrl}/edita/`,idbanner);
+  public putbanner(idbanner: any,body2:any) {
+    return this.http.put(`${this.apiUrl}/edita/${idbanner}`,body2);
   }
 
 }

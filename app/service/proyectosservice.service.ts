@@ -23,8 +23,8 @@ public postproyetos(idproyecto: any) {
   return this.http.post(`${this.apiUrl}/mas/`,idproyecto);
 }
 
-public putproyetos(idproyecto: any) {
-  return this.http.put(`${this.apiUrl}/edita/`,idproyecto);
+public putproyetos(idproyecto: any,body2:any) {
+  return this.http.put(`${this.apiUrl}/edita/${idproyecto}`,body2);
 }
 
 public deleteproyetos(idproyecto: any) {

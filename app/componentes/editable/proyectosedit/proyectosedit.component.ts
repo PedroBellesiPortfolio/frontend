@@ -175,7 +175,7 @@ this.editapro= 0;
         this.onget();
       }
     );}
-    else { this.serviciosproyectos.putproyetos(this.datosproyectosamodificar[0])
+    else { this.serviciosproyectos.putproyetos(this.datosproyectosamodificar[0].idproyectos,this.datosproyectosamodificar[0])
     .subscribe(
       (response) => {
       console.log(response);
@@ -203,7 +203,7 @@ this.editapro= 0;
     this.x=0;
     for (let cambiodeindex of this.datosproyectos2) {
     this.datosproyectos2[this.x].orden_proyectos=this.x;
-    this.serviciosproyectos.putproyetos(this.datosproyectos2[this.x])
+    this.serviciosproyectos.postproyetos(this.datosproyectos2[this.x])
     .subscribe(
       (response) => {
        console.log(response);

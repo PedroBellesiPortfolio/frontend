@@ -76,7 +76,7 @@ export class EncabezadoeditableComponent implements OnInit {
   }
 
   onClicksubmitred (datosmodificar:any){
-    this.servicioredsocial.putred(datosmodificar)
+    this.servicioredsocial.postred(datosmodificar)
     .subscribe(
       (response) => {
       console.log(response);

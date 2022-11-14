@@ -181,7 +181,7 @@ export class ListadoeduceditComponent implements OnInit {
        }
      );}
      else {
-      this.servicioInformacion.puteducacion(this.datoseducacionamodificar[0])
+      this.servicioInformacion.puteducacion(this.datoseducacionamodificar[0].ideducacion,this.datoseducacionamodificar[0])
        .subscribe(
          (response) => {
          console.log(response);

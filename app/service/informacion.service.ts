@@ -26,8 +26,8 @@ export class InformacionService {
     return this.http.post(`${this.apiUrl}/mas/`,ideducacion);
   }
 
-  public puteducacion(ideducacion: any) {
-    return this.http.put(`${this.apiUrl}/edita/`,ideducacion);
+  public puteducacion(ideducacion: any,body2:any) {
+    return this.http.put(`${this.apiUrl}/edita/${ideducacion}`,body2);
   }
   
   public deleteeducacion(ideducacion: any) {

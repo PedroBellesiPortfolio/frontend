@@ -22,8 +22,8 @@ export class SkillserviceService {
   return this.http.post(`${this.apiUrl}/mas/`,idskill);
 }
 
-public putskill(idskill: any): Observable<any>{
-  return this.http.put(`${this.apiUrl}/edita/`,idskill);
+public putskill(idskill: any, body2:any): Observable<any>{
+  return this.http.put(`${this.apiUrl}/edita/${idskill}`,body2);
 }
 
 public deleteskill(idskill: any): Observable<any> {
