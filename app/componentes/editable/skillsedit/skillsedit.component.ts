@@ -156,6 +156,8 @@ export class SkillseditComponent implements OnInit {
       }
     );}
     else {
+      console.log(this.datosproyectosamodificar[0].idskills);
+      console.log(this.datosproyectosamodificar[0]);
       this.serviciosskill.putskill(this.datosproyectosamodificar[0].idskills,this.datosproyectosamodificar[0])
        .subscribe(
          (response) => {
